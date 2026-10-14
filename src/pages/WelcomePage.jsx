@@ -1,5 +1,6 @@
 import { Link, Navigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import welcomeHero from '../assets/welcome-hero.jpg'
 
 export const WelcomePage = () => {
   const { isAuthenticated } = useAuth()
@@ -11,8 +12,12 @@ export const WelcomePage = () => {
   return (
     <div className="auth-shell">
       <div className="welcome-screen">
-        <div className="welcome-screen__visual" aria-hidden="true">
-          <span className="welcome-screen__orb" />
+        <div className="welcome-screen__visual">
+          <img
+            className="welcome-screen__image"
+            src={welcomeHero}
+            alt="Доставка еды в офис — приложение, свежий обед и покупки"
+          />
         </div>
 
         <div className="welcome-screen__copy">
