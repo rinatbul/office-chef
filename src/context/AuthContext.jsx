@@ -1,6 +1,14 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { createContext, useCallback, useContext, useMemo, useState } from 'react'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { loginByName } from '../api/auth'
+import { fetchEmployee } from '../api/employees'
 
 const STORAGE_KEY = 'office-chef-session'
 const AuthContext = createContext(null)
@@ -41,11 +49,47 @@ export const AuthProvider = ({ children }) => {
     return session
   }, [])
 
+  const logout = useCallback(() => {
+    localStorage.removeItem(STORAGE_KEY)
+    setUser(null)
+    queryClient.removeQueries({ queryKey: ['employees'] })
+  }, [queryClient])
+
+  const sessionQuery = useQuery({
+    queryKey: ['employees', user?.id],
+    queryFn: () => fetchEmployee(user.id),
+    enabled: Boolean(user?.id),
+    retry: false,
+  })
+
+  useEffect(() => {
+    if (!sessionQuery.isError) return
+    logout()
+  }, [sessionQuery.isError, logout])
+
+  useEffect(() => {
+    if (!sessionQuery.data) return
+    const next = toSession(sessionQuery.data)
+    setUser((prev) => {
+      if (
+        prev &&
+        prev.id === next.id &&
+        prev.name === next.name &&
+        prev.paymentInfo === next.paymentInfo
+      ) {
+        return prev
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
+      return next
+    })
+  }, [sessionQuery.data])
+
   const loginMutation = useMutation({
     mutationFn: loginByName,
     onSuccess: (employee) => {
       persistSession(employee)
-      queryClient.invalidateQueries({ queryKey: ['employees'] })
+      queryClient.setQueryData(['employees', employee.id], employee)
+      queryClient.invalidateQueries({ queryKey: ['employees'], exact: true })
     },
   })
 
@@ -63,15 +107,13 @@ export const AuthProvider = ({ children }) => {
     [persistSession],
   )
 
-  const logout = useCallback(() => {
-    localStorage.removeItem(STORAGE_KEY)
-    setUser(null)
-  }, [])
+  const isSessionChecking = Boolean(user?.id) && sessionQuery.isPending
 
   const value = useMemo(
     () => ({
       user,
-      isAuthenticated: Boolean(user),
+      isAuthenticated: Boolean(user) && !sessionQuery.isError,
+      isSessionChecking,
       login,
       logout,
       updateSession,
@@ -80,6 +122,8 @@ export const AuthProvider = ({ children }) => {
     }),
     [
       user,
+      sessionQuery.isError,
+      isSessionChecking,
       login,
       logout,
       updateSession,
