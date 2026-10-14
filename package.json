@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "concurrently -k -n api,web -c teal,orange \"npm run server\" \"vite\"",
     "server": "nodemon --watch server --ext js --ignore server/db.json server/index.js",
+    "start": "node server/index.js",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
