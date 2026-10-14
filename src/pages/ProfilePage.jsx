@@ -12,6 +12,11 @@ const INTENSITY_LABEL = {
   сытно: 'Сытно',
 }
 
+const FORMAT_LABEL = {
+  доставка: 'Доставка в офис',
+  пешком: 'Сходить вместе',
+}
+
 const MENU_ITEMS = [
   { id: 'payment', label: 'Способы оплаты', to: '/profile/payment' },
   { id: 'notifications', label: 'Уведомления', to: '/profile/notifications' },
@@ -24,31 +29,39 @@ const buildPreferenceTags = (preference) => {
   if (!preference) return []
   const tags = []
 
+  const cuisines = Array.isArray(preference.cuisines)
+    ? preference.cuisines
+    : String(preference.cuisine || '')
+        .split(',')
+        .map((item) => item.trim())
+        .filter(Boolean)
+
+  cuisines.forEach((cuisine) => {
+    tags.push({ label: cuisine, tone: 'ok', key: `cuisine-${cuisine}` })
+  })
+
   if (preference.intensity) {
     tags.push({
       label: INTENSITY_LABEL[preference.intensity] || preference.intensity,
       tone: 'ok',
+      key: `intensity-${preference.intensity}`,
     })
   }
 
-  const cuisine = Array.isArray(preference.cuisines)
-    ? preference.cuisines.find((item) => item !== 'Любая')
-    : null
-  if (cuisine) {
-    tags.push({ label: cuisine, tone: 'ok' })
+  if (preference.format) {
+    tags.push({
+      label: FORMAT_LABEL[preference.format] || preference.format,
+      tone: 'ok',
+      key: `format-${preference.format}`,
+    })
   }
 
-  const note = String(preference.notes || '')
-  if (/без орех|не орех/i.test(note)) {
-    tags.push({ label: 'Без орехов', tone: 'danger' })
-  } else if (/не остр|без остр/i.test(note)) {
-    tags.push({ label: 'Без острого', tone: 'danger' })
-  } else if (note.trim()) {
-    const short = note.trim().split(/[.,]/)[0].trim()
-    if (short) tags.push({ label: short, tone: 'danger' })
+  const note = String(preference.notes || '').trim()
+  if (note) {
+    tags.push({ label: note, tone: 'danger', key: 'notes' })
   }
 
-  return tags.slice(0, 4)
+  return tags
 }
 
 export const ProfilePage = () => {
@@ -82,7 +95,6 @@ export const ProfilePage = () => {
   }
 
   const displayName = profile?.name || 'Профиль'
-  const subtitle = `${profile?.company || 'Kaspi Design'} · ${profile?.office || 'БЦ Нурлы Тау'}`
 
   return (
     <section className="profile-page">
@@ -91,7 +103,6 @@ export const ProfilePage = () => {
           {getInitials(displayName)}
         </div>
         <h1>{displayName}</h1>
-        <p>{subtitle}</p>
       </div>
 
       <article className="profile-card">
@@ -100,7 +111,7 @@ export const ProfilePage = () => {
           <button
             type="button"
             className="profile-card__link"
-            onClick={() => navigate('/matcher')}
+            onClick={() => navigate('/profile/preferences')}
           >
             Изменить
           </button>
@@ -109,7 +120,7 @@ export const ProfilePage = () => {
           <div className="profile-tags">
             {preferenceTags.map((tag) => (
               <span
-                key={tag.label}
+                key={tag.key}
                 className={`profile-tag profile-tag--${tag.tone}`}
               >
                 {tag.label}
@@ -124,17 +135,25 @@ export const ProfilePage = () => {
       </article>
 
       <nav className="profile-menu" aria-label="Настройки профиля">
-        {MENU_ITEMS.map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            className="profile-menu__item"
-            onClick={() => handleMenu(item)}
-          >
-            <span>{item.label}</span>
-            <span aria-hidden="true">›</span>
-          </button>
-        ))}
+        {MENU_ITEMS.map((item) => {
+          const isLogout = item.id === 'logout'
+
+          return (
+            <button
+              key={item.id}
+              type="button"
+              className={`profile-menu__item${isLogout ? ' profile-menu__item--logout' : ''}`}
+              onClick={() => handleMenu(item)}
+            >
+              <span>{item.label}</span>
+              {isLogout ? null : (
+                <span className="profile-menu__arrow" aria-hidden="true">
+                  ›
+                </span>
+              )}
+            </button>
+          )
+        })}
       </nav>
     </section>
   )

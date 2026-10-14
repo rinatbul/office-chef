@@ -9,6 +9,7 @@ import { useCurrentUser } from '../hooks/useCurrentUser'
 import { useEmployees } from '../hooks/useEmployees'
 import {
   useAddOrderItem,
+  useCompleteOrder,
   useDeleteOrderItem,
   useEndOrderVote,
   useOrder,
@@ -33,10 +34,12 @@ export const OrderDetailPage = () => {
   const parseMenu = useParseOrderMenu(id)
   const suggestAi = useSuggestAiOptions(id)
   const endVote = useEndOrderVote(id)
+  const completeOrder = useCompleteOrder(id)
   const [copied, setCopied] = useState(false)
   const [aiSuggestions, setAiSuggestions] = useState(null)
   const [aiError, setAiError] = useState('')
   const [endVoteError, setEndVoteError] = useState('')
+  const [completeError, setCompleteError] = useState('')
 
   const employeeMap = useMemo(
     () => Object.fromEntries(employees.map((e) => [e.id, e])),
@@ -74,6 +77,15 @@ export const OrderDetailPage = () => {
     }
   }
 
+  const handleCompleteOrder = async () => {
+    setCompleteError('')
+    try {
+      await completeOrder.mutateAsync(userId)
+    } catch (err) {
+      setCompleteError(err.message)
+    }
+  }
+
   if (isPending) {
     return <p className="muted">Загрузка заказа…</p>
   }
@@ -87,6 +99,11 @@ export const OrderDetailPage = () => {
   }
 
   const isOrganizer = order.createdBy === userId
+  const canCloseOrder =
+    isOrganizer &&
+    !order.votingActive &&
+    order.status !== 'delivered' &&
+    order.status !== 'cancelled'
   const memberIds = [
     ...new Set([
       order.createdBy,
@@ -278,6 +295,20 @@ export const OrderDetailPage = () => {
               </button>
             </>
           ) : null}
+        </div>
+      ) : null}
+
+      {canCloseOrder ? (
+        <div className="ai-suggest">
+          {completeError ? <p className="form-error">{completeError}</p> : null}
+          <button
+            type="button"
+            className="btn btn-primary btn-block order-detail__primary"
+            onClick={handleCompleteOrder}
+            disabled={completeOrder.isPending}
+          >
+            {completeOrder.isPending ? 'Закрываем…' : 'Закрыть заказ'}
+          </button>
         </div>
       ) : null}
 

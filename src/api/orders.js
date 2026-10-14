@@ -68,6 +68,13 @@ export const endOrderVote = async ({ orderId, employeeId }) => {
   })
 }
 
+export const completeOrder = async ({ orderId, employeeId }) => {
+  return apiRequest(`/orders/${orderId}/complete`, {
+    method: 'POST',
+    body: JSON.stringify({ employeeId }),
+  })
+}
+
 export const suggestAiOptions = async (orderId) => {
   return apiRequest(`/orders/${orderId}/ai-options`, {
     method: 'POST',

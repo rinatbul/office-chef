@@ -136,9 +136,60 @@
       "paymentInfo": "",
       "cardHint": "",
       "paymentMethods": []
+    },
+    {
+      "id": "b6cbb135-a9a1-45ba-9cb2-879f3430bd6a",
+      "name": "ergeg",
+      "password": "ee",
+      "paymentInfo": "",
+      "cardHint": "",
+      "paymentMethods": []
     }
   ],
   "orders": [
+    {
+      "id": "1582dfe0-be33-4600-b8d6-d4878fb85b90",
+      "title": "ёЙЙЙЙЙ",
+      "place": "ВАПВАПЫВАПЫВа",
+      "time": "12:30",
+      "acceptUntil": "12:30",
+      "createdBy": "e6014e18-f8eb-4ad5-b5a3-fa6204005578",
+      "deliveryFee": 0,
+      "discountPercent": 0,
+      "paymentInfo": "",
+      "format": "walk",
+      "budgetPerPerson": 0,
+      "participantsTarget": 0,
+      "chooseMode": "voting",
+      "votingActive": false,
+      "voteOptions": [
+        {
+          "id": "0818d562-a547-4a3a-9be5-7b57f5bcd0c4",
+          "title": "ВАПВАПЫВАПЫВа"
+        },
+        {
+          "id": "85671b16-5e28-48e9-8e2d-75dae1523dd4",
+          "title": "Суши «Сакура»"
+        },
+        {
+          "id": "6f8a11a6-5978-4d2f-a9bb-a76781a7f899",
+          "title": "Пицца Дзано"
+        },
+        {
+          "id": "7b03017d-5340-4335-9714-61ff55b873b2",
+          "title": "Чайхана «Алтын»"
+        }
+      ],
+      "votes": [],
+      "inviteCode": "AL-5242",
+      "walkMeta": "7 мин · 550 м",
+      "meetingNote": "выходим за 5 мин до обеда из холла, 1 этаж. Оплата на месте: каждый платит за себя.",
+      "status": "delivered",
+      "createdAt": "2026-10-14T05:39:02.281Z",
+      "items": [],
+      "payments": [],
+      "completedAt": "2026-10-14T05:42:15.743Z"
+    },
     {
       "id": "f045e0c1-3f8d-462f-a2f4-7d768ac544bb",
       "title": "Идем на обед в сушибар",
@@ -855,6 +906,20 @@
           ]
         }
       ]
+    },
+    {
+      "id": "84a7fc8a-a8d8-4d77-83dc-cc7d1f75c1d3",
+      "employeeId": "b6cbb135-a9a1-45ba-9cb2-879f3430bd6a",
+      "date": "2026-10-14",
+      "cuisine": "Японская, Боулы и салаты, Итальянская",
+      "cuisines": [
+        "Японская",
+        "Боулы и салаты",
+        "Итальянская"
+      ],
+      "format": "доставка",
+      "intensity": "легко",
+      "notes": ""
     }
   ],
   "matches": [

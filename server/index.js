@@ -463,6 +463,46 @@ app.post('/api/orders/:id/end-vote', async (req, res) => {
   res.json(order)
 })
 
+app.post('/api/orders/:id/complete', async (req, res) => {
+  const { employeeId } = req.body || {}
+  if (!employeeId) {
+    res.status(400).json({ message: 'Нужен employeeId' })
+    return
+  }
+
+  const db = await readDb()
+  const order = db.orders.find((o) => o.id === req.params.id)
+  if (!order) {
+    res.status(404).json({ message: 'Заказ не найден' })
+    return
+  }
+
+  if (order.createdBy !== employeeId) {
+    res.status(403).json({ message: 'Закрыть заказ может только организатор' })
+    return
+  }
+
+  if (order.votingActive) {
+    res.status(400).json({ message: 'Сначала завершите голосование' })
+    return
+  }
+
+  if (order.status === 'cancelled') {
+    res.status(400).json({ message: 'Заказ отменён' })
+    return
+  }
+
+  if (order.status === 'delivered') {
+    res.status(400).json({ message: 'Заказ уже завершён' })
+    return
+  }
+
+  order.status = 'delivered'
+  order.completedAt = new Date().toISOString()
+  await writeDb(db)
+  res.json(order)
+})
+
 app.post('/api/orders/:id/vote', async (req, res) => {
   const { employeeId, optionId } = req.body || {}
   if (!employeeId || !optionId) {
@@ -1021,6 +1061,60 @@ app.post('/api/match', async (_req, res) => {
   })
   await writeDb(db)
   res.json(result)
+})
+
+const SUPPORT_TOPICS = new Set([
+  'question',
+  'bug',
+  'suggestion',
+  'other',
+])
+
+app.post('/api/support', async (req, res) => {
+  const { employeeId, name, email, topic, message } = req.body || {}
+  const nameValue = String(name || '').trim()
+  const emailValue = String(email || '').trim()
+  const messageValue = String(message || '').trim()
+  const topicValue = SUPPORT_TOPICS.has(topic) ? topic : ''
+
+  if (!nameValue) {
+    res.status(400).json({ message: 'Укажите имя' })
+    return
+  }
+
+  if (!emailValue || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+    res.status(400).json({ message: 'Укажите корректный email' })
+    return
+  }
+
+  if (!topicValue) {
+    res.status(400).json({ message: 'Выберите тему обращения' })
+    return
+  }
+
+  if (!messageValue || messageValue.length < 10) {
+    res.status(400).json({ message: 'Опишите проблему подробнее' })
+    return
+  }
+
+  const db = await readDb()
+  if (!Array.isArray(db.supportMessages)) {
+    db.supportMessages = []
+  }
+
+  const entry = {
+    id: uuidv4(),
+    employeeId: employeeId || null,
+    name: nameValue,
+    email: emailValue,
+    topic: topicValue,
+    message: messageValue,
+    createdAt: new Date().toISOString(),
+  }
+
+  db.supportMessages.unshift(entry)
+  await writeDb(db)
+  res.status(201).json({ message: 'Сообщение отправлено', id: entry.id })
 })
 
 await ensurePreferenceDates()

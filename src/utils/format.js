@@ -56,20 +56,25 @@ export const formatMoney = (value) => {
   return `${Number(value || 0).toLocaleString('ru-RU')} ₸`
 }
 
+export const getOrderDayDiff = (iso, now = new Date()) => {
+  if (!iso) return null
+  const date = new Date(iso)
+  const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const startThat = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+  return Math.round((startThat - startToday) / 86400000)
+}
+
 export const formatOrderWhen = (iso, time) => {
   const timeLabel = time || '—'
   if (!iso) return timeLabel
 
-  const date = new Date(iso)
-  const now = new Date()
-  const startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-  const startThat = new Date(date.getFullYear(), date.getMonth(), date.getDate())
-  const dayDiff = Math.round((startThat - startToday) / 86400000)
+  const dayDiff = getOrderDayDiff(iso)
 
   if (dayDiff === 0) return `Сегодня, ${timeLabel}`
   if (dayDiff === 1) return `Завтра, ${timeLabel}`
   if (dayDiff === -1) return `Вчера, ${timeLabel}`
 
+  const date = new Date(iso)
   return `${date.getDate()} ${MONTHS[date.getMonth()]}, ${timeLabel}`
 }
 
@@ -78,7 +83,7 @@ export const ORDER_STATUS_META = {
   open: { label: 'Ждёт участников', tone: 'neutral' },
   awaiting_payment: { label: 'Ожидает оплаты', tone: 'danger' },
   preparing: { label: 'Готовится', tone: 'warn' },
-  delivered: { label: 'Доставлен', tone: 'ok' },
+  delivered: { label: 'Завершён', tone: 'ok' },
   cancelled: { label: 'Отменён', tone: 'muted' },
 }
 

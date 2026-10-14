@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   addOrderItem,
   checkoutOrder,
+  completeOrder,
   createOrder,
   deleteOrderItem,
   endOrderVote,
@@ -136,6 +137,18 @@ export const useEndOrderVote = (orderId) => {
 
   return useMutation({
     mutationFn: (employeeId) => endOrderVote({ orderId, employeeId }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['orders', orderId] })
+      queryClient.invalidateQueries({ queryKey: ['orders'] })
+    },
+  })
+}
+
+export const useCompleteOrder = (orderId) => {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: (employeeId) => completeOrder({ orderId, employeeId }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['orders', orderId] })
       queryClient.invalidateQueries({ queryKey: ['orders'] })

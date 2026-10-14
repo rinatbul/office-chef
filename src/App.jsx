@@ -16,6 +16,7 @@ import { ProfileHelpPage } from './pages/ProfileHelpPage'
 import { ProfileNotificationsPage } from './pages/ProfileNotificationsPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { ProfilePaymentPage } from './pages/ProfilePaymentPage'
+import { ProfilePreferencesPage } from './pages/ProfilePreferencesPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { VotePage } from './pages/VotePage'
 import { WelcomePage } from './pages/WelcomePage'
@@ -40,6 +41,10 @@ const App = () => {
             <Route path="matcher" element={<MatcherPage />} />
             <Route path="matcher/results" element={<AiResultsPage />} />
             <Route path="profile" element={<ProfilePage />} />
+            <Route
+              path="profile/preferences"
+              element={<ProfilePreferencesPage />}
+            />
             <Route path="profile/payment" element={<ProfilePaymentPage />} />
             <Route
               path="profile/notifications"
