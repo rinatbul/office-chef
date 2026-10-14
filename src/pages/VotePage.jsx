@@ -13,18 +13,23 @@ export const VotePage = () => {
   const [formError, setFormError] = useState('')
 
   const myVote = order?.votes?.find((vote) => vote.employeeId === userId)
+  const activeOptionId = selected || myVote?.optionId || ''
+  const hasSelection = Boolean(activeOptionId)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     setFormError('')
 
-    if (!selected) {
+    if (!activeOptionId) {
       setFormError('Выберите место')
       return
     }
 
     try {
-      await voteOrder.mutateAsync({ employeeId: userId, optionId: selected })
+      await voteOrder.mutateAsync({
+        employeeId: userId,
+        optionId: activeOptionId,
+      })
       navigate('/', { replace: true })
     } catch (err) {
       setFormError(err.message)
@@ -63,17 +68,33 @@ export const VotePage = () => {
             const votesCount = (order.votes || []).filter(
               (vote) => vote.optionId === option.id,
             ).length
-            const isActive = (selected || myVote?.optionId) === option.id
+            const isActive = activeOptionId === option.id
 
             return (
               <button
                 key={option.id}
                 type="button"
-                className={`choice-card choice-card--wide${isActive ? ' is-active' : ''}`}
+                className={`choice-card choice-card--wide vote-option${isActive ? ' is-active' : ''}`}
                 onClick={() => setSelected(option.id)}
               >
-                <strong>{option.title}</strong>
-                <span>{votesCount} голос.</span>
+                <span className="vote-option__copy">
+                  <strong>{option.title}</strong>
+                  <span>{votesCount} голос.</span>
+                </span>
+                {isActive ? (
+                  <span className="vote-option__check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="14" height="14">
+                      <path
+                        d="M5 12.5l4.5 4.5L19 7.5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                ) : null}
               </button>
             )
           })}
@@ -83,7 +104,7 @@ export const VotePage = () => {
 
         <button
           type="submit"
-          className="btn btn-primary btn-block"
+          className={`btn btn-block${hasSelection ? ' btn-primary' : ' btn-soft'}`}
           disabled={voteOrder.isPending || !order.votingActive}
         >
           {voteOrder.isPending

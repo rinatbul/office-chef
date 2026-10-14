@@ -3,17 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useCurrentUser } from '../hooks/useCurrentUser'
 import { useCreateOrder } from '../hooks/useOrders'
 
-const PLACE_BY_FORMAT = {
-  walk: 'Чайхана «Алтын» · 7 мин пешком',
-  delivery: 'Sushi Hub',
-}
-
 const buildInitial = (state) => {
   if (!state?.fromAi) {
     return {
-      title: 'Обед команды дизайна',
+      title: '',
       format: 'walk',
-      place: PLACE_BY_FORMAT.walk,
+      place: '',
       time: '12:30',
       chooseMode: 'voting',
     }
@@ -23,7 +18,7 @@ const buildInitial = (state) => {
   return {
     title: state.title || `Обед · ${state.place || ''}`.trim(),
     format,
-    place: state.place || PLACE_BY_FORMAT[format],
+    place: state.place || '',
     time: '12:30',
     chooseMode: state.chooseMode || 'direct',
   }
@@ -42,16 +37,7 @@ export const CreateOrderPage = () => {
   }
 
   const handleFormatChange = (format) => {
-    setForm((prev) => {
-      const prevDefault = PLACE_BY_FORMAT[prev.format]
-      const nextDefault = PLACE_BY_FORMAT[format]
-      const place =
-        !prev.place.trim() || prev.place === prevDefault
-          ? nextDefault
-          : prev.place
-
-      return { ...prev, format, place }
-    })
+    setField('format', format)
   }
 
   const handleSubmit = async (event) => {
@@ -112,11 +98,11 @@ export const CreateOrderPage = () => {
 
       <form className="create-order__form" onSubmit={handleSubmit}>
         <label className="auth-form__field">
-          <span>Название</span>
+          <span className="create-order__label">Название</span>
           <input
             value={form.title}
             onChange={(e) => setField('title', e.target.value)}
-            placeholder="Обед команды дизайна"
+            placeholder="Название мероприятия"
           />
         </label>
 
@@ -143,20 +129,22 @@ export const CreateOrderPage = () => {
         </div>
 
         <label className="auth-form__field">
-          <span>{isDelivery ? 'Откуда доставить' : 'Куда идём'}</span>
+          <span className="create-order__label">
+            {isDelivery ? 'Откуда доставить' : 'Куда идём'}
+          </span>
           <input
             value={form.place}
             onChange={(e) => setField('place', e.target.value)}
             placeholder={
               isDelivery
                 ? 'Например, Sushi Hub'
-                : 'Чайхана «Алтын» · 7 мин пешком'
+                : 'Например Чайхана «Алтын»'
             }
           />
         </label>
 
         <label className="auth-form__field">
-          <span>Время обеда</span>
+          <span className="create-order__label">Время обеда</span>
           <input
             className="time-picker"
             type="time"

@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { useCurrentUser } from '../hooks/useCurrentUser'
 import { useEmployee } from '../hooks/useEmployees'
-import { useOrders } from '../hooks/useOrders'
 import { usePreferences } from '../hooks/usePreferences'
-import { formatMoney, getInitials } from '../utils/format'
+import { getInitials } from '../utils/format'
 
 const INTENSITY_LABEL = {
   легко: 'Лёгкое',
@@ -57,7 +56,6 @@ export const ProfilePage = () => {
   const { logout } = useAuth()
   const { userId } = useCurrentUser()
   const { data: profile, isPending, error } = useEmployee(userId)
-  const { data: orders = [] } = useOrders()
   const { data: preferences = [] } = usePreferences()
 
   const myPreference = preferences.find((item) => item.employeeId === userId)
@@ -65,33 +63,6 @@ export const ProfilePage = () => {
     () => buildPreferenceTags(myPreference),
     [myPreference],
   )
-
-  const stats = useMemo(() => {
-    const myOrders = orders.filter(
-      (order) =>
-        order.createdBy === userId ||
-        (order.items || []).some((item) => item.employeeId === userId) ||
-        (order.votes || []).some((vote) => vote.employeeId === userId),
-    )
-    const organized = orders.filter((order) => order.createdBy === userId)
-    const lunches = myOrders.length
-    const saved = myOrders.reduce((sum, order) => {
-      const subtotal = (order.items || []).reduce(
-        (acc, item) => acc + (Number(item.price) || 0),
-        0,
-      )
-      const discount = Math.round(
-        (subtotal * (Number(order.discountPercent) || 0)) / 100,
-      )
-      return sum + discount
-    }, 0)
-
-    return {
-      lunches: lunches || 42,
-      orders: organized.length || 12,
-      saved: saved > 0 ? saved : 3200,
-    }
-  }, [orders, userId])
 
   const handleMenu = (item) => {
     if (item.id === 'logout') {
@@ -121,21 +92,6 @@ export const ProfilePage = () => {
         </div>
         <h1>{displayName}</h1>
         <p>{subtitle}</p>
-      </div>
-
-      <div className="profile-stats">
-        <article className="profile-stat">
-          <strong>{stats.lunches}</strong>
-          <span>обеда</span>
-        </article>
-        <article className="profile-stat">
-          <strong>{stats.orders}</strong>
-          <span>заказов</span>
-        </article>
-        <article className="profile-stat">
-          <strong>−{formatMoney(stats.saved)}</strong>
-          <span>сэкономлено</span>
-        </article>
       </div>
 
       <article className="profile-card">

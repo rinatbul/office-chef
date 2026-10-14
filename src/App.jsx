@@ -3,6 +3,7 @@ import { Layout } from './components/Layout'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { AiResultsPage } from './pages/AiResultsPage'
 import { CreateOrderPage } from './pages/CreateOrderPage'
+import { CreatePollPage } from './pages/CreatePollPage'
 import { HomePage } from './pages/HomePage'
 import { LoginPage } from './pages/LoginPage'
 import { MatcherPage } from './pages/MatcherPage'
@@ -31,6 +32,7 @@ const App = () => {
             <Route index element={<HomePage />} />
             <Route path="orders" element={<OrdersPage />} />
             <Route path="orders/new" element={<CreateOrderPage />} />
+            <Route path="polls/new" element={<CreatePollPage />} />
             <Route path="orders/:id/vote" element={<VotePage />} />
             <Route path="orders/:id/summary" element={<OrderSummaryPage />} />
             <Route path="orders/:id/pay" element={<PaySharePage />} />

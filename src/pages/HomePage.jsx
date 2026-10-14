@@ -18,6 +18,7 @@ export const HomePage = () => {
   const { data: employees = [] } = useEmployees()
   const carouselRef = useRef(null)
   const [slide, setSlide] = useState(0)
+  const [feedExpanded, setFeedExpanded] = useState(false)
 
   const employeeMap = Object.fromEntries(employees.map((e) => [e.id, e]))
 
@@ -56,8 +57,6 @@ export const HomePage = () => {
       })),
     ),
   ].sort((a, b) => String(b.at).localeCompare(String(a.at)))
-
-  const latestNotification = notifications[0] || null
 
   useEffect(() => {
     setSlide(0)
@@ -166,27 +165,6 @@ export const HomePage = () => {
 
       {isPending ? <p className="muted">Загрузка…</p> : null}
 
-      {latestNotification ? (
-        <Link to={latestNotification.to} className="home-alert">
-          <span className="home-alert__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="20" height="20">
-              <path
-                d="M12 22a2.2 2.2 0 0 0 2.1-1.5H9.9A2.2 2.2 0 0 0 12 22Zm7-5.5V11a7 7 0 1 0-14 0v5.5L3 18.5V20h18v-1.5l-2-2Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </span>
-          <div className="home-alert__copy">
-            <strong>{latestNotification.title}</strong>
-            <span>{latestNotification.text}</span>
-          </div>
-          <span className="home-alert__badge">Новое</span>
-        </Link>
-      ) : null}
-
       {activeOrders.length > 0 ? (
         <section className="home-carousel" aria-label="Активные обеды">
           <div
@@ -233,29 +211,57 @@ export const HomePage = () => {
         </Link>
       </div>
 
+      <Link className="btn btn-soft btn-block home-poll-btn" to="/polls/new">
+        Создать опрос
+      </Link>
+
       {notifications.length > 0 ? (
         <section className="home-section home-section--feed">
-          <div className="home-feed">
-            {notifications.map((item) => (
-              <Link
-                key={item.id}
-                to={item.to || '/'}
-                className="home-feed__item"
+          <div className="home-feed__header">
+            <h3>Уведомления</h3>
+            {notifications.length > 2 ? (
+              <button
+                type="button"
+                className={`home-feed__more${feedExpanded ? ' is-expanded' : ''}`}
+                onClick={() => setFeedExpanded((prev) => !prev)}
               >
-                <span
-                  className="home-feed__avatar"
-                  style={{
-                    background: item.type === 'invite' ? '#c5d9f2' : '#b8e0d2',
-                  }}
+                <span>{feedExpanded ? 'Свернуть' : 'Смотреть все'}</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path
+                    d="M6 9l6 6 6-6"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            ) : null}
+          </div>
+          <div className="home-feed">
+            {(feedExpanded ? notifications : notifications.slice(0, 2)).map(
+              (item) => (
+                <Link
+                  key={item.id}
+                  to={item.to || '/'}
+                  className="home-feed__item"
                 >
-                  {getInitials(item.employee?.name || '?')}
-                </span>
-                <div>
-                  <p>{item.feedText}</p>
-                  <span>{formatRelativeTime(item.at)}</span>
-                </div>
-              </Link>
-            ))}
+                  <span
+                    className="home-feed__avatar"
+                    style={{
+                      background: item.type === 'invite' ? '#c5d9f2' : '#b8e0d2',
+                    }}
+                  >
+                    {getInitials(item.employee?.name || '?')}
+                  </span>
+                  <div>
+                    <p>{item.feedText}</p>
+                    <span>{formatRelativeTime(item.at)}</span>
+                  </div>
+                </Link>
+              ),
+            )}
           </div>
         </section>
       ) : null}

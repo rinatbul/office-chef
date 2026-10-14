@@ -209,11 +209,6 @@ textarea {
 }
 
 .profile-subpage {
-  .create-order__top h1 {
-    font-size: clamp(1.35rem, 5.5vw, 1.7rem);
-    color: var(--color-ink);
-  }
-
   .profile-panel {
     border: none;
     box-shadow: 0 1px 0 rgba(26, 35, 50, 0.04);
@@ -613,6 +608,106 @@ textarea {
   .ui-switch[data-state='checked'] & {
     transform: translateX(1.35rem);
   }
+}
+
+.ui-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 3.2rem;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: var(--color-surface);
+  padding: 0.85rem 1rem;
+  color: var(--color-ink);
+  font-size: 1.02rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+
+  &:focus,
+  &[data-state='open'] {
+    outline: none;
+    border-color: var(--color-welcome-accent);
+    box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.14);
+  }
+
+  &[data-placeholder] {
+    color: var(--color-muted);
+  }
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+}
+
+.ui-select__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui-select__icon {
+  flex-shrink: 0;
+  color: var(--color-muted);
+}
+
+.ui-select__content {
+  z-index: 50;
+  overflow: hidden;
+  min-width: var(--radix-select-trigger-width);
+  max-height: min(18rem, var(--radix-select-content-available-height));
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 12px 32px rgba(26, 35, 50, 0.14);
+  animation: fade-up 0.16s ease both;
+}
+
+.ui-select__viewport {
+  padding: 0.4rem;
+}
+
+.ui-select__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 12px;
+  padding: 0.7rem 0.85rem 0.7rem 2.1rem;
+  color: var(--color-ink);
+  font-size: 0.98rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+
+  &[data-highlighted] {
+    background: var(--color-welcome-soft);
+  }
+
+  &[data-state='checked'] {
+    font-weight: 700;
+  }
+
+  &[data-disabled] {
+    pointer-events: none;
+    opacity: 0.45;
+  }
+}
+
+.ui-select__item-indicator {
+  position: absolute;
+  left: 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-welcome-accent);
 }
 
 .auth-shell {
@@ -1196,6 +1291,12 @@ textarea {
   }
 }
 
+.home-poll-btn {
+  min-height: 3.1rem;
+  border-radius: 16px;
+  font-weight: 700;
+}
+
 .home-section {
   display: grid;
   gap: 0.8rem;
@@ -1299,6 +1400,38 @@ textarea {
   flex-shrink: 0;
 }
 
+.home-feed__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.home-feed__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  svg {
+    transition: transform 0.2s ease;
+    transform: rotate(-90deg);
+  }
+
+  &.is-expanded svg {
+    transform: rotate(0deg);
+  }
+}
+
 .home-alert {
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -1357,7 +1490,68 @@ textarea {
   padding-bottom: 0.5rem;
 }
 
+.vote-page {
+  .choice-card.is-active {
+    border-color: var(--color-welcome-accent);
+    box-shadow: 0 0 0 1px var(--color-welcome-accent);
+  }
+
+  .vote-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+  }
+
+  .vote-option__copy {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .vote-option__check {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 1.55rem;
+    height: 1.55rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-welcome-accent);
+    color: var(--color-welcome-accent);
+    background: #eef4ff;
+  }
+
+  .btn-soft,
+  .btn-primary {
+    border-radius: 16px;
+  }
+
+  .btn-soft {
+    background: var(--color-welcome-soft);
+    color: var(--color-welcome-accent);
+
+    &:hover:not(:disabled) {
+      background: #dce6f2;
+    }
+  }
+
+  .btn-primary {
+    background: var(--color-welcome-accent);
+    color: #fff;
+
+    &:hover:not(:disabled) {
+      background: var(--color-welcome-accent-hover);
+    }
+  }
+}
+
 .create-order {
+  .auth-form__field span.create-order__label {
+    color: var(--color-ink);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
   .auth-form__field input,
   .time-picker {
     border-color: transparent;
@@ -1401,6 +1595,8 @@ textarea {
     font-size: clamp(1.7rem, 7vw, 2rem);
     font-weight: 800;
     letter-spacing: -0.04em;
+    color: var(--color-ink);
+    line-height: 1.15;
   }
 }
 
@@ -1501,9 +1697,11 @@ textarea {
 .orders-page__title {
   h1 {
     margin: 0;
-    font-size: 1.85rem;
+    font-size: clamp(1.7rem, 7vw, 2rem);
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
+    color: var(--color-ink);
+    line-height: 1.15;
   }
 }
 
@@ -1515,8 +1713,11 @@ textarea {
 
   h1 {
     margin: 0;
-    font-size: 1.7rem;
+    font-size: clamp(1.7rem, 7vw, 2rem);
     font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--color-ink);
+    line-height: 1.15;
   }
 
   p {
@@ -2218,6 +2419,21 @@ textarea {
       background: var(--color-welcome-accent-hover);
     }
   }
+
+  .auth-form__field input {
+    min-height: 3.2rem;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    background: var(--color-surface);
+    font-size: 1.02rem;
+    font-weight: 500;
+    padding: 0.85rem 1rem;
+
+    &:focus {
+      border-color: var(--color-welcome-accent);
+      box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.14);
+    }
+  }
 }
 
 .ai-pick__banner {
@@ -2403,9 +2619,11 @@ textarea {
 
   h1 {
     margin: 0;
-    font-size: 1.55rem;
+    font-size: clamp(1.7rem, 7vw, 2rem);
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
+    color: var(--color-ink);
+    line-height: 1.15;
   }
 }
 

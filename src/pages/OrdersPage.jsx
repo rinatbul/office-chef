@@ -46,8 +46,10 @@ export const OrdersPage = () => {
 
   return (
     <section className="orders-page">
-      <div className="orders-page__title">
-        <h1>Заказы</h1>
+      <div className="create-order__top">
+        <div>
+          <h1>Заказы</h1>
+        </div>
       </div>
 
       <div className="orders-filters" role="tablist" aria-label="Фильтр заказов">
