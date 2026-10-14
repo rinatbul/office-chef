@@ -1,6 +1,8 @@
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Switch } from '../components/ui/Switch'
 import { useAuth } from '../context/AuthContext'
+import { useTheme } from '../context/ThemeContext'
 import { useCurrentUser } from '../hooks/useCurrentUser'
 import { useEmployee } from '../hooks/useEmployees'
 import { usePreferences } from '../hooks/usePreferences'
@@ -67,6 +69,7 @@ const buildPreferenceTags = (preference) => {
 export const ProfilePage = () => {
   const navigate = useNavigate()
   const { logout } = useAuth()
+  const { isDark, setTheme } = useTheme()
   const { userId } = useCurrentUser()
   const { data: profile, isPending, error } = useEmployee(userId)
   const { data: preferences = [] } = usePreferences()
@@ -133,6 +136,17 @@ export const ProfilePage = () => {
           </p>
         )}
       </article>
+
+      <div className="profile-panel">
+        <label className="profile-switch" htmlFor="theme-dark">
+          <span>Тёмная тема</span>
+          <Switch
+            id="theme-dark"
+            checked={isDark}
+            onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')}
+          />
+        </label>
+      </div>
 
       <nav className="profile-menu" aria-label="Настройки профиля">
         {MENU_ITEMS.map((item) => {
