@@ -1,0 +1,1322 @@
+{
+  "employees": [
+    {
+      "id": "e1",
+      "name": "Аня",
+      "cardHint": "•• 4421"
+    },
+    {
+      "id": "e2",
+      "name": "Максим",
+      "cardHint": "•• 1180"
+    },
+    {
+      "id": "e3",
+      "name": "Катя",
+      "cardHint": "•• 9033"
+    },
+    {
+      "id": "e4",
+      "name": "Игорь",
+      "cardHint": "•• 5512"
+    },
+    {
+      "id": "e5",
+      "name": "Лена",
+      "cardHint": "•• 7744"
+    },
+    {
+      "id": "e6",
+      "name": "Дима",
+      "cardHint": "•• 2209"
+    },
+    {
+      "id": "632a6c35-a329-4fe7-b433-aa48040d57a9",
+      "name": "Новый Юзер",
+      "cardHint": ""
+    },
+    {
+      "id": "47b7b30d-f067-4ba0-9f27-98d709eae375",
+      "name": "Ринат",
+      "cardHint": "",
+      "password": "1"
+    },
+    {
+      "id": "cd667b4b-d06c-4a15-84e9-e98a67e38224",
+      "name": "Кек Иванов",
+      "cardHint": "+7 900 555-44-33",
+      "paymentInfo": "+7 900 555-44-33"
+    },
+    {
+      "id": "e91b52ff-87bb-45a5-9b26-7e3992852fd1",
+      "name": "ЦЦЦ",
+      "cardHint": ""
+    },
+    {
+      "id": "f4f3c889-c329-4718-8dde-5956d89067d5",
+      "name": "ККК",
+      "paymentInfo": "",
+      "cardHint": ""
+    },
+    {
+      "id": "aa063ac0-c22b-4ac3-af2e-373192600365",
+      "name": "Тест",
+      "password": "anything123",
+      "paymentInfo": "",
+      "cardHint": ""
+    },
+    {
+      "id": "07f5ca72-878b-4275-99b6-7721ea6001e5",
+      "name": "Анна",
+      "password": "3",
+      "paymentInfo": "",
+      "cardHint": ""
+    },
+    {
+      "id": "b2042305-b4ab-45dd-b9f8-453acf1758c5",
+      "name": "Ба",
+      "password": "1",
+      "paymentInfo": "",
+      "cardHint": ""
+    },
+    {
+      "id": "39e7afb5-1f09-4098-991c-02ffee5f233e",
+      "name": "ВА",
+      "password": "3",
+      "paymentInfo": "",
+      "cardHint": ""
+    },
+    {
+      "id": "de4b15a3-94f6-478c-8431-010a5c2081f3",
+      "name": "Rinat",
+      "password": "1",
+      "paymentInfo": "",
+      "cardHint": ""
+    },
+    {
+      "id": "588150e2-de11-4743-88f6-2aa9fd250fec",
+      "name": "Hby",
+      "password": "3",
+      "paymentInfo": "",
+      "cardHint": ""
+    },
+    {
+      "id": "5e58dd89-3636-4f9a-8d36-ed10bb398dec",
+      "name": "Rin",
+      "password": "4",
+      "paymentInfo": "",
+      "cardHint": ""
+    },
+    {
+      "id": "330a09d5-e775-4a71-aae6-25fdd82c0e79",
+      "name": "HHH",
+      "password": "5",
+      "paymentInfo": "",
+      "cardHint": ""
+    },
+    {
+      "id": "58d302e9-1f59-45c0-a329-8c09215c4258",
+      "name": "Rttff",
+      "password": "1",
+      "paymentInfo": "",
+      "cardHint": ""
+    }
+  ],
+  "orders": [
+    {
+      "id": "f045e0c1-3f8d-462f-a2f4-7d768ac544bb",
+      "title": "Идем на обед в сушибар",
+      "place": "Сушибар",
+      "time": "12:30",
+      "acceptUntil": "12:30",
+      "createdBy": "b2042305-b4ab-45dd-b9f8-453acf1758c5",
+      "deliveryFee": 0,
+      "discountPercent": 0,
+      "paymentInfo": "",
+      "format": "walk",
+      "budgetPerPerson": 0,
+      "participantsTarget": 0,
+      "chooseMode": "voting",
+      "votingActive": true,
+      "voteOptions": [
+        {
+          "id": "9ebc48d5-e4eb-4cee-b936-b2097d90a7b4",
+          "title": "Сушибар"
+        },
+        {
+          "id": "04b988d1-f88e-4881-b77e-5a65b35be769",
+          "title": "Суши «Сакура»"
+        },
+        {
+          "id": "f50e552d-783c-417d-8d20-676aa3f36255",
+          "title": "Пицца Дзано"
+        },
+        {
+          "id": "c2fd6f23-940b-4708-9319-185f360899f3",
+          "title": "Чайхана «Алтын»"
+        }
+      ],
+      "votes": [
+        {
+          "id": "757a8ec5-4dd6-4086-9718-2e8ed910ad53",
+          "employeeId": "39e7afb5-1f09-4098-991c-02ffee5f233e",
+          "optionId": "04b988d1-f88e-4881-b77e-5a65b35be769",
+          "votedAt": "2026-10-13T10:40:55.986Z"
+        },
+        {
+          "id": "1606707e-e06d-43f5-bde4-fc8e940ac847",
+          "employeeId": "5e58dd89-3636-4f9a-8d36-ed10bb398dec",
+          "optionId": "04b988d1-f88e-4881-b77e-5a65b35be769",
+          "votedAt": "2026-10-13T11:04:38.245Z"
+        }
+      ],
+      "inviteCode": "AL-9842",
+      "walkMeta": "7 мин · 550 м",
+      "meetingNote": "выходим за 5 мин до обеда из холла, 1 этаж. Оплата на месте: каждый платит за себя.",
+      "status": "open",
+      "createdAt": "2026-10-13T10:36:30.184Z",
+      "items": [],
+      "payments": []
+    },
+    {
+      "id": "40982109-b0f7-4fcb-b85d-21e8c1d49ca6",
+      "title": "Закажу Бургеры",
+      "place": "Бургер кинг",
+      "time": "12:30",
+      "acceptUntil": "12:30",
+      "createdBy": "47b7b30d-f067-4ba0-9f27-98d709eae375",
+      "deliveryFee": 250,
+      "discountPercent": 0,
+      "paymentInfo": "",
+      "format": "delivery",
+      "budgetPerPerson": 0,
+      "participantsTarget": 0,
+      "chooseMode": "voting",
+      "votingActive": true,
+      "voteOptions": [
+        {
+          "id": "43be52dd-2a6c-4a8e-83b8-08bb1c662e25",
+          "title": "Бургер кинг"
+        },
+        {
+          "id": "a4bf1512-e695-4ac9-8098-e905ae0c64be",
+          "title": "Суши «Сакура»"
+        },
+        {
+          "id": "b41cdeec-bd4e-4409-a523-4cd7a42f2c21",
+          "title": "Пицца Дзано"
+        },
+        {
+          "id": "349e0c81-1a7e-44f0-83fa-f3ef5a933b81",
+          "title": "Чайхана «Алтын»"
+        }
+      ],
+      "votes": [],
+      "inviteCode": "AL-1195",
+      "walkMeta": "",
+      "meetingNote": "собираем позиции и оплачиваем инициатору до оформления доставки.",
+      "status": "open",
+      "createdAt": "2026-10-13T10:34:52.697Z",
+      "items": [],
+      "payments": []
+    },
+    {
+      "id": "demo-prep-1",
+      "title": "Суши на обед",
+      "place": "Суши «Сакура»",
+      "time": "12:30",
+      "createdBy": "47b7b30d-f067-4ba0-9f27-98d709eae375",
+      "deliveryFee": 1500,
+      "discountPercent": 10,
+      "format": "delivery",
+      "chooseMode": "direct",
+      "votingActive": false,
+      "voteOptions": [],
+      "votes": [
+        {
+          "id": "v1",
+          "employeeId": "e1",
+          "optionId": "x",
+          "votedAt": "2026-10-13T08:00:00.000Z"
+        },
+        {
+          "id": "v2",
+          "employeeId": "e2",
+          "optionId": "x",
+          "votedAt": "2026-10-13T08:01:00.000Z"
+        },
+        {
+          "id": "v3",
+          "employeeId": "e3",
+          "optionId": "x",
+          "votedAt": "2026-10-13T08:02:00.000Z"
+        }
+      ],
+      "inviteCode": "AL-6603",
+      "status": "preparing",
+      "createdAt": "2026-10-13T08:30:00.000Z",
+      "items": [
+        {
+          "id": "s1",
+          "employeeId": "e1",
+          "name": "Филадельфия",
+          "price": 2800
+        },
+        {
+          "id": "s2",
+          "employeeId": "e1",
+          "name": "мисо-суп",
+          "price": 1800
+        },
+        {
+          "id": "s3",
+          "employeeId": "e2",
+          "name": "Чука-салат",
+          "price": 2100
+        },
+        {
+          "id": "s4",
+          "employeeId": "e2",
+          "name": "ролл",
+          "price": 3000
+        }
+      ],
+      "payments": [
+        {
+          "id": "pay1",
+          "employeeId": "e1",
+          "amount": 4600,
+          "paidAt": "2026-10-13T09:00:00.000Z"
+        },
+        {
+          "id": "pay2",
+          "employeeId": "e2",
+          "amount": 5100,
+          "paidAt": "2026-10-13T09:05:00.000Z"
+        }
+      ],
+      "participantsTarget": 7
+    },
+    {
+      "id": "demo-await-1",
+      "title": "Пицца на команду",
+      "place": "Пицца Дзано",
+      "time": "13:00",
+      "createdBy": "e2",
+      "deliveryFee": 500,
+      "discountPercent": 0,
+      "format": "delivery",
+      "chooseMode": "direct",
+      "votingActive": false,
+      "voteOptions": [],
+      "votes": [],
+      "inviteCode": "AL-7702",
+      "status": "awaiting_payment",
+      "createdAt": "2026-10-14T08:00:00.000Z",
+      "items": [
+        {
+          "id": "p1",
+          "employeeId": "e2",
+          "name": "Маргарита",
+          "price": 3200
+        },
+        {
+          "id": "p2",
+          "employeeId": "e1",
+          "name": "Пепперони",
+          "price": 3400
+        },
+        {
+          "id": "p3",
+          "employeeId": "e4",
+          "name": "Четыре сыра",
+          "price": 3600
+        }
+      ],
+      "payments": [
+        {
+          "id": "c00cfc68-9e8d-4bf5-ab22-732c3b5efb68",
+          "employeeId": "e1",
+          "amount": 3567,
+          "method": "kaspi",
+          "channel": "in_app",
+          "paidAt": "2026-10-13T10:33:12.229Z"
+        }
+      ],
+      "participantsTarget": 5
+    },
+    {
+      "id": "62ebab34-8c5e-410c-bc66-c761764eba5d",
+      "title": "Обед Программистов",
+      "place": "Sushi Hub",
+      "time": "12:30",
+      "acceptUntil": "12:30",
+      "createdBy": "47b7b30d-f067-4ba0-9f27-98d709eae375",
+      "deliveryFee": 250,
+      "discountPercent": 0,
+      "paymentInfo": "",
+      "format": "delivery",
+      "budgetPerPerson": 0,
+      "participantsTarget": 0,
+      "chooseMode": "voting",
+      "votingActive": true,
+      "voteOptions": [
+        {
+          "id": "6a1505e8-63b9-427d-9331-69a260ebfe4e",
+          "title": "Sushi Hub"
+        },
+        {
+          "id": "91ea5c14-ec6e-4cc4-aaa6-ee2e83b588f2",
+          "title": "Суши «Сакура»"
+        },
+        {
+          "id": "40c91de7-af55-4124-b519-6df507082674",
+          "title": "Пицца Дзано"
+        },
+        {
+          "id": "b906cb06-f7ce-44b1-b089-115e7992e6a4",
+          "title": "Чайхана «Алтын»"
+        },
+        {
+          "id": "a0dfbacd-563c-4cf1-8a63-f178cadbbd46",
+          "title": "Боул-бар"
+        },
+        {
+          "id": "909e94e2-a1ce-4741-b7fb-04ed518108a0",
+          "title": "Плов-центр"
+        }
+      ],
+      "votes": [],
+      "inviteCode": "AL-4166",
+      "walkMeta": "",
+      "meetingNote": "собираем позиции и оплачиваем инициатору до оформления доставки.",
+      "status": "preparing",
+      "createdAt": "2026-10-13T10:03:30.610Z",
+      "items": [
+        {
+          "id": "23f12ebd-0950-4c15-9d2b-2b358b8ecd9b",
+          "employeeId": "47b7b30d-f067-4ba0-9f27-98d709eae375",
+          "name": "Бургер",
+          "price": 600
+        }
+      ],
+      "payments": []
+    },
+    {
+      "id": "39dbf365-249c-45d9-9e9d-5f65f2373969",
+      "title": "Обед команды дизайна",
+      "place": "",
+      "time": "12:30",
+      "acceptUntil": "12:00",
+      "createdBy": "47b7b30d-f067-4ba0-9f27-98d709eae375",
+      "deliveryFee": 0,
+      "discountPercent": 0,
+      "paymentInfo": "",
+      "format": "walk",
+      "budgetPerPerson": 4500,
+      "participantsTarget": 7,
+      "chooseMode": "voting",
+      "votingActive": true,
+      "voteOptions": [
+        {
+          "id": "135e65ec-7467-4784-a8a7-446e0f31d1ba",
+          "title": "Чайхана «Алтын» · 7 мин пешком"
+        },
+        {
+          "id": "1d4c6982-dfa9-4741-a1ff-4d69793250fe",
+          "title": "Суши «Сакура»"
+        },
+        {
+          "id": "b2caa7b8-ce5e-494e-ac03-675c4765dd47",
+          "title": "Пицца Дзано"
+        },
+        {
+          "id": "195b8fe9-3f14-4ddf-b680-a1a517f87c85",
+          "title": "Чайхана «Алтын»"
+        },
+        {
+          "id": "9b5fb0c8-fcfc-483d-93a2-c5564e96e3a7",
+          "title": "Боул-бар"
+        },
+        {
+          "id": "73ec2f15-cad5-403f-abe6-9314af4e28d1",
+          "title": "Плов-центр"
+        },
+        {
+          "id": "fb61efb6-49bf-4dbe-8329-e5f2bdefb29d",
+          "title": "Рамен Club"
+        },
+        {
+          "id": "64eab574-5280-48ac-b942-48ca043428b9",
+          "title": "Green Salad Bar"
+        }
+      ],
+      "votes": [
+        {
+          "id": "daab5bdb-f9b7-4b70-9180-ec849dddf67a",
+          "employeeId": "07f5ca72-878b-4275-99b6-7721ea6001e5",
+          "optionId": "9b5fb0c8-fcfc-483d-93a2-c5564e96e3a7",
+          "votedAt": "2026-10-13T10:22:21.633Z"
+        }
+      ],
+      "status": "awaiting_payment",
+      "createdAt": "2026-10-13T09:48:18.290Z",
+      "items": [
+        {
+          "id": "230ebe71-5a05-4218-bb68-15178ad19994",
+          "employeeId": "07f5ca72-878b-4275-99b6-7721ea6001e5",
+          "name": "ысывыв",
+          "price": 455
+        }
+      ],
+      "payments": [
+        {
+          "id": "ef114954-ffeb-4d3e-9cfa-eb5ac442b1f4",
+          "employeeId": "07f5ca72-878b-4275-99b6-7721ea6001e5",
+          "amount": 455,
+          "method": "kaspi",
+          "channel": "in_app",
+          "paidAt": "2026-10-13T10:33:34.416Z"
+        }
+      ]
+    },
+    {
+      "id": "ce0d14ea-98fd-482b-8934-bbc125234e38",
+      "title": "Обед команды дизайна",
+      "place": "",
+      "time": "12:30",
+      "acceptUntil": "11:45",
+      "createdBy": "e1",
+      "deliveryFee": 0,
+      "discountPercent": 0,
+      "paymentInfo": "",
+      "format": "walk",
+      "budgetPerPerson": 4500,
+      "participantsTarget": 7,
+      "chooseMode": "voting",
+      "votingActive": true,
+      "voteOptions": [
+        {
+          "id": "a13f3d7a-6cc2-4d0e-a012-2e132976c31c",
+          "title": "Чайхана «Алтын»"
+        },
+        {
+          "id": "c3f77eef-901a-4f15-90e8-bcaf5750b6a7",
+          "title": "Суши «Сакура»"
+        },
+        {
+          "id": "286ccf3d-7c90-4ea6-8c90-aab40e6344ba",
+          "title": "Пицца Дзано"
+        }
+      ],
+      "votes": [
+        {
+          "id": "c34d59c6-a47b-40b1-b86f-1b34d0f57e3c",
+          "employeeId": "e2",
+          "optionId": "c3f77eef-901a-4f15-90e8-bcaf5750b6a7",
+          "votedAt": "2026-10-13T09:46:29.417Z"
+        },
+        {
+          "id": "71579850-1349-46da-a9a4-d8c2caae4f19",
+          "employeeId": "47b7b30d-f067-4ba0-9f27-98d709eae375",
+          "optionId": "a13f3d7a-6cc2-4d0e-a012-2e132976c31c",
+          "votedAt": "2026-10-13T09:47:03.269Z"
+        }
+      ],
+      "status": "open",
+      "createdAt": "2026-10-13T09:46:21.946Z",
+      "items": [],
+      "payments": []
+    },
+    {
+      "id": "710dbd8a-72c6-48d5-a8ab-a16f3b90f013",
+      "title": "Бургеры",
+      "place": "Бурген сан",
+      "time": "13:00",
+      "createdBy": "cd667b4b-d06c-4a15-84e9-e98a67e38224",
+      "deliveryFee": 500,
+      "discountPercent": 0,
+      "status": "awaiting_payment",
+      "createdAt": "2026-10-13T09:00:32.510Z",
+      "items": [
+        {
+          "id": "a419e7e9-6e4f-43e1-af68-9ad08946cb3d",
+          "employeeId": "cd667b4b-d06c-4a15-84e9-e98a67e38224",
+          "name": "Сендвич",
+          "price": 400
+        },
+        {
+          "id": "fcd701e0-0067-4cac-a6ec-696bda2b5bc2",
+          "employeeId": "e91b52ff-87bb-45a5-9b26-7e3992852fd1",
+          "name": "Картошка",
+          "price": 300
+        }
+      ],
+      "payments": [
+        {
+          "id": "6b9b49c1-3af4-4358-bf6e-d8650cb2b671",
+          "employeeId": "e91b52ff-87bb-45a5-9b26-7e3992852fd1",
+          "amount": 550,
+          "paidAt": "2026-10-13T09:06:36.015Z"
+        }
+      ],
+      "paymentInfo": "+7 900 111-22-33"
+    },
+    {
+      "id": "41a141b9-9b2b-4d7b-83b8-70ca5c5d2162",
+      "title": "Суши",
+      "place": "Суши Манга",
+      "time": "12:30",
+      "createdBy": "e1",
+      "deliveryFee": 250,
+      "discountPercent": 0,
+      "status": "open",
+      "createdAt": "2026-10-13T07:27:34.779Z",
+      "items": [
+        {
+          "id": "db0a9651-6ae3-406a-8408-171682a58ef4",
+          "employeeId": "e1",
+          "name": "Нори",
+          "price": 300
+        },
+        {
+          "employeeId": "e1",
+          "name": "филадельфия",
+          "price": 150,
+          "id": "eebff695-a254-4d3f-bd9e-10cfc0419a7b"
+        },
+        {
+          "employeeId": "e3",
+          "name": "Мисо суп",
+          "price": 400,
+          "id": "bd1a555d-801b-40bf-8085-79aa6b43076a"
+        }
+      ],
+      "payments": [
+        {
+          "id": "41752272-068d-49a3-955e-6ca9234de4cb",
+          "employeeId": "e3",
+          "amount": 525,
+          "paidAt": "2026-10-13T09:07:19.734Z"
+        }
+      ]
+    },
+    {
+      "id": "o1",
+      "title": "Заказываем суши в 12:30",
+      "place": "Sushi Hub",
+      "time": "12:30",
+      "createdBy": "e1",
+      "deliveryFee": 250,
+      "discountPercent": 10,
+      "status": "open",
+      "createdAt": "2026-10-13T09:00:00.000Z",
+      "items": [
+        {
+          "id": "i1",
+          "employeeId": "e1",
+          "name": "Филадельфия",
+          "price": 490
+        },
+        {
+          "id": "i2",
+          "employeeId": "e1",
+          "name": "Мисо суп",
+          "price": 190
+        },
+        {
+          "id": "i3",
+          "employeeId": "e2",
+          "name": "Дракон ролл",
+          "price": 560
+        },
+        {
+          "id": "i4",
+          "employeeId": "e3",
+          "name": "Сет мини",
+          "price": 890
+        },
+        {
+          "employeeId": "e4",
+          "name": "Калифорния",
+          "price": 420,
+          "id": "75a6e4a6-2256-4e33-8452-8ddb590db0c5"
+        },
+        {
+          "employeeId": "e4",
+          "name": "Чай",
+          "price": 120,
+          "id": "6f5e9add-79b5-4564-9280-11af4dc6f52b"
+        },
+        {
+          "id": "21c88074-49cc-462f-b152-3a8d88cff2d3",
+          "employeeId": "e1",
+          "name": "Филадельфия",
+          "price": 500
+        }
+      ]
+    },
+    {
+      "id": "demo-delivered-1",
+      "title": "Обед у Плов-центра",
+      "place": "Плов-центр",
+      "time": "12:40",
+      "createdBy": "e3",
+      "deliveryFee": 0,
+      "discountPercent": 0,
+      "format": "walk",
+      "chooseMode": "direct",
+      "votingActive": false,
+      "voteOptions": [],
+      "votes": [],
+      "inviteCode": "AL-8801",
+      "status": "delivered",
+      "createdAt": "2026-10-08T07:40:00.000Z",
+      "items": [
+        {
+          "id": "d1",
+          "employeeId": "e3",
+          "name": "Плов",
+          "price": 1800
+        },
+        {
+          "id": "d2",
+          "employeeId": "e1",
+          "name": "Лагман",
+          "price": 1600
+        },
+        {
+          "id": "d3",
+          "employeeId": "e2",
+          "name": "Чай",
+          "price": 400
+        }
+      ],
+      "payments": [],
+      "participantsTarget": 6
+    }
+  ],
+  "preferences": [
+    {
+      "id": "p1",
+      "employeeId": "e2",
+      "date": "2026-10-14",
+      "cuisine": "азиатская",
+      "format": "доставка",
+      "intensity": "сытно",
+      "notes": "без острого"
+    },
+    {
+      "id": "p2",
+      "employeeId": "e3",
+      "date": "2026-10-14",
+      "cuisine": "салаты",
+      "format": "пешком",
+      "intensity": "легко",
+      "notes": "хочу пройтись"
+    },
+    {
+      "id": "p3",
+      "employeeId": "e4",
+      "date": "2026-10-14",
+      "cuisine": "пицца",
+      "format": "кафе",
+      "intensity": "сытно",
+      "notes": ""
+    },
+    {
+      "id": "p4",
+      "employeeId": "e5",
+      "date": "2026-10-14",
+      "cuisine": "салаты",
+      "format": "пешком",
+      "intensity": "легко",
+      "notes": "рядом парк"
+    },
+    {
+      "id": "p5",
+      "employeeId": "e6",
+      "date": "2026-10-14",
+      "cuisine": "азиатская",
+      "format": "доставка",
+      "intensity": "обычно",
+      "notes": "можно поделиться"
+    },
+    {
+      "id": "0c744c91-e6ff-41a1-8028-9b2babc6abb6",
+      "employeeId": "cd667b4b-d06c-4a15-84e9-e98a67e38224",
+      "date": "2026-10-14",
+      "cuisine": "азиатская",
+      "format": "доставка",
+      "intensity": "обычно",
+      "notes": ""
+    },
+    {
+      "id": "0cd19243-c9dc-4488-bf1f-d3330253e230",
+      "employeeId": "e1",
+      "date": "2026-10-14",
+      "cuisine": "Японская, Боулы и салаты",
+      "cuisines": [
+        "Японская",
+        "Боулы и салаты"
+      ],
+      "format": "доставка",
+      "intensity": "легко",
+      "notes": "Не острое, хочется тёплого",
+      "aiPicks": [
+        {
+          "id": "ai1",
+          "title": "Суши «Сакура»",
+          "cuisines": [
+            "Японская"
+          ],
+          "intensity": "легко",
+          "format": "доставка",
+          "eta": "35 мин",
+          "reason": "лёгкие роллы и супы под ваш запрос",
+          "tone": "peach",
+          "score": 112,
+          "reasons": [
+            "совпадает кухня",
+            "нужная насыщенность",
+            "доставка в офис",
+            "тёплое блюдо"
+          ]
+        },
+        {
+          "id": "ai2",
+          "title": "Боул-бар Green",
+          "cuisines": [
+            "Боулы и салаты"
+          ],
+          "intensity": "легко",
+          "format": "доставка",
+          "eta": "25 мин",
+          "reason": "свежие боулы без острого",
+          "tone": "yellow",
+          "score": 100,
+          "reasons": [
+            "совпадает кухня",
+            "нужная насыщенность",
+            "доставка в офис"
+          ]
+        },
+        {
+          "id": "ai7",
+          "title": "Salad & Soup",
+          "cuisines": [
+            "Боулы и салаты",
+            "Любая"
+          ],
+          "intensity": "легко",
+          "format": "доставка",
+          "eta": "20 мин",
+          "reason": "лёгкий обед по ограничениям",
+          "tone": "peach",
+          "score": 100,
+          "reasons": [
+            "совпадает кухня",
+            "нужная насыщенность",
+            "доставка в офис"
+          ]
+        },
+        {
+          "id": "ai6",
+          "title": "Рамен Club",
+          "cuisines": [
+            "Японская"
+          ],
+          "intensity": "обычно",
+          "format": "доставка",
+          "eta": "30 мин",
+          "reason": "тёплый рамен без орехов",
+          "tone": "yellow",
+          "score": 92,
+          "reasons": [
+            "совпадает кухня",
+            "доставка в офис",
+            "тёплое блюдо"
+          ]
+        }
+      ]
+    }
+  ],
+  "matches": [
+    {
+      "id": "f2165962-8d98-4bf4-b508-8516d1a234b5",
+      "createdAt": "2026-10-13T09:54:59.386Z",
+      "date": "2026-10-13",
+      "summary": "Собрано 2 обеденных компаний из 6 человек.",
+      "groups": [
+        {
+          "id": "g-1",
+          "title": "Микс: азиатская / пицца",
+          "suggestion": "общий заказ с доставкой",
+          "size": 4,
+          "members": [
+            {
+              "employeeId": "e2",
+              "name": "Максим",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "сытно",
+              "notes": "без острого"
+            },
+            {
+              "employeeId": "e6",
+              "name": "Дима",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "обычно",
+              "notes": "можно поделиться"
+            },
+            {
+              "employeeId": "cd667b4b-d06c-4a15-84e9-e98a67e38224",
+              "name": "Кек Иванов",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "обычно",
+              "notes": ""
+            },
+            {
+              "employeeId": "e4",
+              "name": "Игорь",
+              "cuisine": "пицца",
+              "format": "кафе",
+              "intensity": "сытно",
+              "notes": ""
+            }
+          ],
+          "reasons": [
+            "оба хотят «азиатская»",
+            "формат: доставка",
+            "насыщенность: сытно"
+          ]
+        },
+        {
+          "id": "g-2",
+          "title": "салаты · пешком",
+          "suggestion": "прогулка рядом с офисом",
+          "size": 2,
+          "members": [
+            {
+              "employeeId": "e3",
+              "name": "Катя",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "хочу пройтись"
+            },
+            {
+              "employeeId": "e5",
+              "name": "Лена",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "рядом парк"
+            }
+          ],
+          "reasons": [
+            "оба хотят «салаты»",
+            "формат: пешком",
+            "насыщенность: легко"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31e2af9c-9109-495e-8b96-da0233099b4b",
+      "createdAt": "2026-10-13T09:24:26.774Z",
+      "date": "2026-10-13",
+      "summary": "Собрано 2 обеденных компаний из 6 человек.",
+      "groups": [
+        {
+          "id": "g-1",
+          "title": "Микс: азиатская / пицца",
+          "suggestion": "общий заказ с доставкой",
+          "size": 4,
+          "members": [
+            {
+              "employeeId": "e2",
+              "name": "Максим",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "сытно",
+              "notes": "без острого"
+            },
+            {
+              "employeeId": "e6",
+              "name": "Дима",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "обычно",
+              "notes": "можно поделиться"
+            },
+            {
+              "employeeId": "cd667b4b-d06c-4a15-84e9-e98a67e38224",
+              "name": "Кек Иванов",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "обычно",
+              "notes": ""
+            },
+            {
+              "employeeId": "e4",
+              "name": "Игорь",
+              "cuisine": "пицца",
+              "format": "кафе",
+              "intensity": "сытно",
+              "notes": ""
+            }
+          ],
+          "reasons": [
+            "оба хотят «азиатская»",
+            "формат: доставка",
+            "насыщенность: сытно"
+          ]
+        },
+        {
+          "id": "g-2",
+          "title": "салаты · пешком",
+          "suggestion": "прогулка рядом с офисом",
+          "size": 2,
+          "members": [
+            {
+              "employeeId": "e3",
+              "name": "Катя",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "хочу пройтись"
+            },
+            {
+              "employeeId": "e5",
+              "name": "Лена",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "рядом парк"
+            }
+          ],
+          "reasons": [
+            "оба хотят «салаты»",
+            "формат: пешком",
+            "насыщенность: легко"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ecc6e2e6-33d7-4bff-83c5-0a17199cce50",
+      "createdAt": "2026-10-13T09:15:43.878Z",
+      "date": "2026-10-13",
+      "summary": "Собрано 2 обеденных компаний из 6 человек.",
+      "groups": [
+        {
+          "id": "g-1",
+          "title": "Микс: азиатская / бургер / пицца",
+          "suggestion": "общий заказ с доставкой",
+          "size": 4,
+          "members": [
+            {
+              "employeeId": "e2",
+              "name": "Максим",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "сытно",
+              "notes": "без острого"
+            },
+            {
+              "employeeId": "e6",
+              "name": "Дима",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "обычно",
+              "notes": "можно поделиться"
+            },
+            {
+              "employeeId": "cd667b4b-d06c-4a15-84e9-e98a67e38224",
+              "name": "Кек Иванов",
+              "cuisine": "бургер",
+              "format": "доставка",
+              "intensity": "сытно",
+              "notes": ""
+            },
+            {
+              "employeeId": "e4",
+              "name": "Игорь",
+              "cuisine": "пицца",
+              "format": "кафе",
+              "intensity": "сытно",
+              "notes": ""
+            }
+          ],
+          "reasons": [
+            "оба хотят «азиатская»",
+            "формат: доставка",
+            "насыщенность: сытно"
+          ]
+        },
+        {
+          "id": "g-2",
+          "title": "салаты · пешком",
+          "suggestion": "прогулка рядом с офисом",
+          "size": 2,
+          "members": [
+            {
+              "employeeId": "e3",
+              "name": "Катя",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "хочу пройтись"
+            },
+            {
+              "employeeId": "e5",
+              "name": "Лена",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "рядом парк"
+            }
+          ],
+          "reasons": [
+            "оба хотят «салаты»",
+            "формат: пешком",
+            "насыщенность: легко"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b94ad86b-11f9-4244-9d02-7a818e5cb4c5",
+      "createdAt": "2026-10-13T08:56:03.973Z",
+      "date": "2026-10-13",
+      "summary": "Собрано 2 обеденных компаний из 6 человек.",
+      "groups": [
+        {
+          "id": "g-1",
+          "title": "Микс: азиатская / бургер / пицца",
+          "suggestion": "общий заказ с доставкой",
+          "size": 4,
+          "members": [
+            {
+              "employeeId": "e2",
+              "name": "Максим",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "сытно",
+              "notes": "без острого"
+            },
+            {
+              "employeeId": "e6",
+              "name": "Дима",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "обычно",
+              "notes": "можно поделиться"
+            },
+            {
+              "employeeId": "cd667b4b-d06c-4a15-84e9-e98a67e38224",
+              "name": "кек",
+              "cuisine": "бургер",
+              "format": "доставка",
+              "intensity": "обычно",
+              "notes": "без сахара"
+            },
+            {
+              "employeeId": "e4",
+              "name": "Игорь",
+              "cuisine": "пицца",
+              "format": "кафе",
+              "intensity": "сытно",
+              "notes": ""
+            }
+          ],
+          "reasons": [
+            "оба хотят «азиатская»",
+            "формат: доставка",
+            "насыщенность: сытно"
+          ]
+        },
+        {
+          "id": "g-2",
+          "title": "салаты · пешком",
+          "suggestion": "прогулка рядом с офисом",
+          "size": 2,
+          "members": [
+            {
+              "employeeId": "e3",
+              "name": "Катя",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "хочу пройтись"
+            },
+            {
+              "employeeId": "e5",
+              "name": "Лена",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "рядом парк"
+            }
+          ],
+          "reasons": [
+            "оба хотят «салаты»",
+            "формат: пешком",
+            "насыщенность: легко"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a0eb3195-b20a-488d-9cdd-e9cc36771e85",
+      "createdAt": "2026-10-13T07:29:48.531Z",
+      "date": "2026-10-13",
+      "summary": "Собрано 2 обеденных компаний из 5 человек.",
+      "groups": [
+        {
+          "id": "g-1",
+          "title": "Микс: азиатская / пицца",
+          "suggestion": "общий заказ с доставкой",
+          "size": 3,
+          "members": [
+            {
+              "employeeId": "e2",
+              "name": "Максим",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "сытно",
+              "notes": "без острого"
+            },
+            {
+              "employeeId": "e6",
+              "name": "Дима",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "обычно",
+              "notes": "можно поделиться"
+            },
+            {
+              "employeeId": "e4",
+              "name": "Игорь",
+              "cuisine": "пицца",
+              "format": "кафе",
+              "intensity": "сытно",
+              "notes": ""
+            }
+          ],
+          "reasons": [
+            "оба хотят «азиатская»",
+            "формат: доставка",
+            "насыщенность: сытно"
+          ]
+        },
+        {
+          "id": "g-2",
+          "title": "салаты · пешком",
+          "suggestion": "прогулка рядом с офисом",
+          "size": 2,
+          "members": [
+            {
+              "employeeId": "e3",
+              "name": "Катя",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "хочу пройтись"
+            },
+            {
+              "employeeId": "e5",
+              "name": "Лена",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "рядом парк"
+            }
+          ],
+          "reasons": [
+            "оба хотят «салаты»",
+            "формат: пешком",
+            "насыщенность: легко"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50fc45a8-6c95-4c4f-8317-ec5911475999",
+      "createdAt": "2026-10-13T07:25:01.047Z",
+      "date": "2026-10-13",
+      "summary": "Собрано 2 обеденных компаний из 5 человек.",
+      "groups": [
+        {
+          "id": "g-1",
+          "title": "Микс: азиатская / пицца",
+          "suggestion": "общий заказ с доставкой",
+          "size": 3,
+          "members": [
+            {
+              "employeeId": "e2",
+              "name": "Максим",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "сытно",
+              "notes": "без острого"
+            },
+            {
+              "employeeId": "e6",
+              "name": "Дима",
+              "cuisine": "азиатская",
+              "format": "доставка",
+              "intensity": "обычно",
+              "notes": "можно поделиться"
+            },
+            {
+              "employeeId": "e4",
+              "name": "Игорь",
+              "cuisine": "пицца",
+              "format": "кафе",
+              "intensity": "сытно",
+              "notes": ""
+            }
+          ],
+          "reasons": [
+            "оба хотят «азиатская»",
+            "формат: доставка",
+            "насыщенность: сытно"
+          ]
+        },
+        {
+          "id": "g-2",
+          "title": "салаты · пешком",
+          "suggestion": "прогулка рядом с офисом",
+          "size": 2,
+          "members": [
+            {
+              "employeeId": "e3",
+              "name": "Катя",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "хочу пройтись"
+            },
+            {
+              "employeeId": "e5",
+              "name": "Лена",
+              "cuisine": "салаты",
+              "format": "пешком",
+              "intensity": "легко",
+              "notes": "рядом парк"
+            }
+          ],
+          "reasons": [
+            "оба хотят «салаты»",
+            "формат: пешком",
+            "насыщенность: легко"
+          ]
+        }
+      ]
+    }
+  ]
+}
