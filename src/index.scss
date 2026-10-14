@@ -253,12 +253,6 @@ textarea {
   .profile-switch {
     color: var(--color-ink);
     font-weight: 600 !important;
-
-    input[type='checkbox'] {
-      accent-color: var(--color-welcome-accent);
-      width: 1.15rem;
-      height: 1.15rem;
-    }
   }
 
   .btn-soft {
@@ -573,9 +567,51 @@ textarea {
   justify-content: space-between;
   gap: 1rem;
   font-weight: 600 !important;
+  cursor: pointer;
+}
 
-  input {
-    width: auto;
+.ui-switch {
+  position: relative;
+  display: inline-flex;
+  width: 2.75rem;
+  height: 1.55rem;
+  flex-shrink: 0;
+  align-items: center;
+  border: none;
+  border-radius: 999px;
+  padding: 0;
+  background: #d5dae3;
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.22);
+  }
+
+  &[data-state='checked'] {
+    background: var(--color-welcome-accent);
+  }
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+}
+
+.ui-switch__thumb {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(26, 35, 50, 0.18);
+  transform: translateX(0.18rem);
+  transition: transform 0.18s ease;
+  will-change: transform;
+
+  .ui-switch[data-state='checked'] & {
+    transform: translateX(1.35rem);
   }
 }
 
